@@ -1,26 +1,16 @@
-#Ejercicio 8
+#Ejercicio 9
 
-#Escribe un programa que determine si un año es bisiesto o no.
-#Solicita al usuario que ingrese un año y determina si es bisiesto (divisible entre 4, pero no entre
-#100, salvo que sea divisible entre 400).
+#Escribe un programa que clasifique a una persona en función de su edad.
+#Solicita la edad de la persona e indica si es niño (0-12 años), adolescente (13-17 años), adulto (18-
+#64 años) o anciano (65 años o más).
 
-def is_leap_year(year):
-    
-    if year < 1582:
-        return year % 4 == 0 
+age = int(input("Enter your age: "))
 
-    if year % 400 == 0:
-        return True
-    elif year % 100 == 0:
-        return False
-    elif year % 4 == 0:
-        return True
-    else:
-        return False
-
-year = int(input("Enter a year: "))
-
-if is_leap_year(year):
-    print(f"{year} is a leap year")
+if 0 <= age <= 12:
+    print("The person is a child.")
+elif 13 <= age <= 17:
+    print("The person is a teenager.")
+elif 18 <= age <= 64:
+    print("The person is an adult.")
 else:
-    print(f"{year} is not a leap year")
+    print("The person is a senior.")
