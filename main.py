@@ -1,14 +1,27 @@
-#Ejercicio 2
+#Ejercicio 3
 
-#Solicita al usuario una calificación y determina si la nota es aprobatoria (>= 60) o reprobatoria (<60).
+#Crea una calculadora que solicite dos números y una operación matemática (+, -, *, /). Usa match
+#para realizar la operación correspondiente
 
-message = int(input("Introduce a grade: "))
+def calculator():
+    
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    operation = input("Enter the operation (+, -, *, /): ")
 
-if message >= 60 and message <= 100:
-    print(f"""YOU APPROVED""")
+    match operation:
+        case "+":
+            result = num1 + num2
+        case "-":
+            result = num1 - num2
+        case "*":
+            result = num1 * num2
+        case "/":
+            if num2 != 0:
+                result = num1 / num2
+            else:
+                result = "Error: Cannot divide by zero."
+        case _:
+            result = "Invalid operation."
 
-elif message >= 0 and message < 60:
-    print(f"""YOU DISAPPROVED""")
-
-else:
-    print(f"""THE GRADE IS INVALID""")
+    print(f"Result: {result}")
