@@ -1,13 +1,26 @@
-#Ejercicio 7
+#Ejercicio 8
 
-#Escribe un programa que determine si un número es positivo, negativo o cero usando if .
-#Solicita al usuario que ingrese un número y determina si es positivo, negativo o cero.
+#Escribe un programa que determine si un año es bisiesto o no.
+#Solicita al usuario que ingrese un año y determina si es bisiesto (divisible entre 4, pero no entre
+#100, salvo que sea divisible entre 400).
 
-number = float(input("Enter a number: "))
+def is_leap_year(year):
+    
+    if year < 1582:
+        return year % 4 == 0 
 
-if number > 0:
-    print("The number is positive.")
-elif number < 0:
-    print("The number is negative.")
+    if year % 400 == 0:
+        return True
+    elif year % 100 == 0:
+        return False
+    elif year % 4 == 0:
+        return True
+    else:
+        return False
+
+year = int(input("Enter a year: "))
+
+if is_leap_year(year):
+    print(f"{year} is a leap year")
 else:
-    print("The number is zero.")
+    print(f"{year} is not a leap year")
