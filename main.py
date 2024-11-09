@@ -1,27 +1,20 @@
-#Ejercicio 3
+#Ejercicio 4
 
-#Crea una calculadora que solicite dos números y una operación matemática (+, -, *, /). Usa match
-#para realizar la operación correspondiente
+#Escribe un programa que determine el tipo de triángulo en función de sus lados usando if .
 
-def calculator():
-    
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    operation = input("Enter the operation (+, -, *, /): ")
+def triangle_type():
 
-    match operation:
-        case "+":
-            result = num1 + num2
-        case "-":
-            result = num1 - num2
-        case "*":
-            result = num1 * num2
-        case "/":
-            if num2 != 0:
-                result = num1 / num2
-            else:
-                result = "Error: Cannot divide by zero."
-        case _:
-            result = "Invalid operation."
+    side1 = float(input("Enter the length of the first side: "))
+    side2 = float(input("Enter the length of the second side: "))
+    side3 = float(input("Enter the length of the third side: "))
 
-    print(f"Result: {result}")
+    if side1 == side2 == side3:
+        triangle = "Equilateral"
+    elif side1 == side2 or side2 == side3 or side1 == side3:
+        triangle = "Isosceles"
+    else:
+        triangle = "Scalene"
+
+    print(f"The triangle is {triangle}.")
+
+triangle_type()
