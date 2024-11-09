@@ -1,20 +1,24 @@
-#Ejercicio 4
+#Ejercicio 5
 
-#Escribe un programa que determine el tipo de triángulo en función de sus lados usando if .
+#Escribe un programa que, dado un número del 1 al 7, imprima el día correspondiente de la
+#semana usando match .
 
-def triangle_type():
+number = int(input("Enter a number between 1 and 7: "))
 
-    side1 = float(input("Enter the length of the first side: "))
-    side2 = float(input("Enter the length of the second side: "))
-    side3 = float(input("Enter the length of the third side: "))
-
-    if side1 == side2 == side3:
-        triangle = "Equilateral"
-    elif side1 == side2 or side2 == side3 or side1 == side3:
-        triangle = "Isosceles"
-    else:
-        triangle = "Scalene"
-
-    print(f"The triangle is {triangle}.")
-
-triangle_type()
+match number:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case 5:
+        print("Friday")
+    case 6:
+        print("Saturday")
+    case 7:
+        print("Sunday")
+    case _:
+        print("Invalid number. It must be between 1 and 7.")
