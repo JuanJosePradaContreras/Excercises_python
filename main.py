@@ -1,32 +1,31 @@
-#Ejercicio 20
+#Ejercicio 21
 
-#Escribe un programa que convierta una calificación numérica en una letra de acuerdo a un
-#sistema de calificación específico, usando match .
+#Escribe un programa que calcule el costo de estacionamiento basado en el número de horas, con
+#tarifas progresivas.
 
-def convert_to_letter(grade):
-    
-    match grade:
-        case grade if 90 <= grade <= 100:
-            return "A"
-        case grade if 80 <= grade < 90:
-            return "B"
-        case grade if 70 <= grade < 80:
-            return "C"
-        case grade if 60 <= grade < 70:
-            return "D"
-        case _:
-            return "F"  
+#El costo de estacionamiento se calcula de la siguiente manera:
+#Primera hora: $5
+#Segunda a cuarta hora: $4 por hora
+#Más de cuatro horas: $3 por cada hora adicional
+#Solicita al usuario el número de horas de estacionamiento y calcula el costo total.
+
+def calculate_parking_cost(hours):
+   
+    if hours <= 1:
+        return 5 
+       
+    elif 2 <= hours <= 4:
+        return 5 + (hours - 1) * 4
+     
+    else:
+        return 5 + 3 * (hours - 4) + 12  
 
 def main():
-   
-    grade = float(input("Enter your grade (0-100): "))
     
-    if 0 <= grade <= 100:
-        
-        letter = convert_to_letter(grade)
-       
-        print(f"Your grade is: {letter}")
-    else:
-        print("The grade must be between 0 and 100.")
+    hours = float(input("Enter the number of parking hours: "))
+    
+    cost = calculate_parking_cost(hours)
+    
+    print(f"The total parking cost is: ${cost:.2f}")
 
 main()
