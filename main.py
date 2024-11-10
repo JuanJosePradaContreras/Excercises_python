@@ -1,21 +1,19 @@
-#Ejercicio 13
+#Ejercicio 14
 
-#Escribe un programa que determine el mayor de tres números usando if .
+#Escribe un programa que permita al usuario adivinar una letra secreta usando match .
 
-def main():
-
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    num3 = float(input("Enter the third number: "))
+def guess_letter():
+    secret_letter = "A"
     
-    if num1 >= num2 and num1 >= num3:
-        largest = num1
-    elif num2 >= num1 and num2 >= num3:
-        largest = num2
-    else:
-        largest = num3
-    
+    while True: 
+        user_guess = input("Guess the secret letter: ").upper()
+        
+        match user_guess:
+            case _:
+                if user_guess == secret_letter:
+                    print("Congratulations! You guessed the secret letter.")
+                    break 
+                else:
+                    print("Sorry! You didn't guess it. Try again.")
 
-    print(f"The largest of the three numbers is: {largest}")
-
-main()
+guess_letter()
