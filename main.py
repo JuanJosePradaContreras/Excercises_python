@@ -1,26 +1,32 @@
-#Ejercicio 18
+#Ejercicio 20
 
-#Escribe un programa que calcule el número de créditos totales de un estudiante en base a las
-#materias cursadas y el puntaje obtenido en cada una. El puntaje debe ser evaluado como
-#aprobado o no aprobado.
+#Escribe un programa que convierta una calificación numérica en una letra de acuerdo a un
+#sistema de calificación específico, usando match .
 
-def calculate_total_credits(number_of_courses):
-    total_credits = 0
+def convert_to_letter(grade):
     
-    for i in range(1, number_of_courses + 1):
-        score = float(input(f"Enter the score obtained in course {i}: "))
-        
-        if score >= 60:
-            total_credits += 3 
-    
-    return total_credits
+    match grade:
+        case grade if 90 <= grade <= 100:
+            return "A"
+        case grade if 80 <= grade < 90:
+            return "B"
+        case grade if 70 <= grade < 80:
+            return "C"
+        case grade if 60 <= grade < 70:
+            return "D"
+        case _:
+            return "F"  
 
 def main():
-
-    number_of_courses = int(input("Enter the number of courses you have taken: "))
+   
+    grade = float(input("Enter your grade (0-100): "))
     
-    total_credits = calculate_total_credits(number_of_courses)
-    
-    print(f"The total number of credits earned is: {total_credits}")
+    if 0 <= grade <= 100:
+        
+        letter = convert_to_letter(grade)
+       
+        print(f"Your grade is: {letter}")
+    else:
+        print("The grade must be between 0 and 100.")
 
 main()
