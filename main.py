@@ -1,34 +1,21 @@
-#Ejercicio 12
+#Ejercicio 13
 
-#Escribe un programa que calcule el IMC y determine el estado de peso.
-
-def calculate_bmi(weight, height):
-    
-    return weight / (height ** 2)
-
-def classify_bmi(bmi):
-    
-    if bmi < 18.5:
-        return "Underweight"
-    elif 18.5 <= bmi <= 24.9:
-        return "Normal weight"
-    elif 25 <= bmi <= 29.9:
-        return "Overweight"
-    else:
-        return "Obesity"
+#Escribe un programa que determine el mayor de tres números usando if .
 
 def main():
+
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
     
-    weight = float(input("Enter your weight in kilograms: "))
-    height = float(input("Enter your height in meters: "))
+    if num1 >= num2 and num1 >= num3:
+        largest = num1
+    elif num2 >= num1 and num2 >= num3:
+        largest = num2
+    else:
+        largest = num3
     
-    
-    bmi = calculate_bmi(weight, height)
-    
-    
-    weight_status = classify_bmi(bmi)
-    
-    print(f"Your Body Mass Index (BMI) is: {bmi:.2f}")
-    print(f"Your weight status is: {weight_status}")
+
+    print(f"The largest of the three numbers is: {largest}")
 
 main()
