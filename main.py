@@ -1,26 +1,27 @@
-#Ejercicio 16
+#Ejercicio 17
 
-#Escribe un programa que calcule el tiempo que tarda en llegar un automóvil a su destino.
+#Escribe un programa que calcule la calificación final de un estudiante basándose en su calificación
+#y si ha hecho tareas adicionales. Las tareas adicionales pueden darle un extra de puntos, pero el
+#máximo de puntos no puede exceder 100.
 
-def calculate_travel_time(distance, speed):
+def calculate_final_grade(grade, did_extra_assignments):
+
+    if did_extra_assignments.lower() == "yes":
+        grade += grade * 0.05  
+        
+    if grade > 100:
+        grade = 100
     
-    time_hours = distance / speed
-    
-    hours = int(time_hours)  
-    minutes = round((time_hours - hours) * 60)  
-    
-    return hours, minutes
+    return grade
 
 def main():
-   
-    distance = float(input("Enter the distance to travel (in km): "))
-    speed = float(input("Enter the car's average speed (in km/h): "))
     
-    if speed > 120:
-        print("Warning! The speed is greater than 120 km/h, which is dangerous.")
+    grade = float(input("Enter the student's grade (0-100): "))
     
-    hours, minutes = calculate_travel_time(distance, speed)
+    did_extra_assignments = input("Did the student do extra assignments? (yes/no): ").strip()
     
-    print(f"The travel time is: {hours} hours and {minutes} minutes.")
+    final_grade = calculate_final_grade(grade, did_extra_assignments)
+    
+    print(f"The student's final grade is: {final_grade:.2f}")
 
 main()
