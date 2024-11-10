@@ -1,17 +1,20 @@
-#Ejercicio 10
+#Ejercicio 11
 
-#Escribe un programa que asigne una calificación basada en una nota numérica.
-#Solicita una nota numérica y clasifícala como A (90-100), B (80-89), C (70-79), D (60-69), o F (<60).
+#Escribe un programa que convierta grados Celsius a Fahrenheit o Fahrenheit a Celsius usando
+#match .
 
-score = float(input("Enter your numerical score: "))
+temperature = float(input("Enter the temperature: "))
+scale = input("Enter the scale (C for Celsius or F for Fahrenheit): ").upper()
 
-if 90 <= score <= 100:
-    print("Grade: A")
-elif 80 <= score < 90:
-    print("Grade: B")
-elif 70 <= score < 80:
-    print("Grade: C")
-elif 60 <= score < 70:
-    print("Grade: D")
-else:
-    print("Grade: F")
+match scale:
+    case 'C':
+        
+        result = (temperature * 9/5) + 32
+        print(f"{temperature}°C is equal to {result:.2f}°F.")
+    case 'F':
+
+        result = (temperature - 32) * 5/9
+        print(f"{temperature}°F is equal to {result:.2f}°C.")
+    case _:
+        
+        print("Invalid scale. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
