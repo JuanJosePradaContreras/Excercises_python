@@ -1,19 +1,32 @@
-#Ejercicio 14
+#Ejercicio 15
 
-#Escribe un programa que permita al usuario adivinar una letra secreta usando match .
+#Escribe un programa que calcule el salario neto de un empleado después de aplicar impuestos.
 
-def guess_letter():
-    secret_letter = "A"
+def calculate_net_salary(gross_salary, country):
     
-    while True: 
-        user_guess = input("Guess the secret letter: ").upper()
-        
-        match user_guess:
-            case _:
-                if user_guess == secret_letter:
-                    print("Congratulations! You guessed the secret letter.")
-                    break 
-                else:
-                    print("Sorry! You didn't guess it. Try again.")
+    match country:
+        case "Country A":
+            tax_rate = 0.20  
+        case "Country B":
+            tax_rate = 0.15  
+        case "Country C":
+            tax_rate = 0.10  
+        case _:
+            tax_rate = 0.18  
+    
+    
+    net_salary = gross_salary * (1 - tax_rate)
+    return net_salary
 
-guess_letter()
+def main():
+    
+    gross_salary = float(input("Enter your gross salary: "))
+    country = input("Enter your country of residence (Country A, Country B, Country C, other): ").strip()
+    
+   
+    net_salary = calculate_net_salary(gross_salary, country)
+    
+    
+    print(f"Your net salary after taxes is: {net_salary:.2f}")
+
+main()
