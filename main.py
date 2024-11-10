@@ -1,31 +1,30 @@
-#Ejercicio 21
+#Ejercicio 22
 
-#Escribe un programa que calcule el costo de estacionamiento basado en el número de horas, con
-#tarifas progresivas.
+#Escribe un programa que clasifique un triángulo en agudo, obtuso o rectángulo según sus ángulos
+#internos usando if .
 
-#El costo de estacionamiento se calcula de la siguiente manera:
-#Primera hora: $5
-#Segunda a cuarta hora: $4 por hora
-#Más de cuatro horas: $3 por cada hora adicional
-#Solicita al usuario el número de horas de estacionamiento y calcula el costo total.
+def classify_triangle(angle1, angle2, angle3):
 
-def calculate_parking_cost(hours):
-   
-    if hours <= 1:
-        return 5 
-       
-    elif 2 <= hours <= 4:
-        return 5 + (hours - 1) * 4
-     
+    if angle1 + angle2 + angle3 != 180:
+        return "The angles do not form a valid triangle."
+    
+    if angle1 == 90 or angle2 == 90 or angle3 == 90:
+        return "Right" 
+    
+    elif angle1 > 90 or angle2 > 90 or angle3 > 90:
+        return "Obtuse"  
+    
     else:
-        return 5 + 3 * (hours - 4) + 12  
+        return "Acute" 
 
 def main():
+   
+    angle1 = float(input("Enter the first angle of the triangle: "))
+    angle2 = float(input("Enter the second angle of the triangle: "))
+    angle3 = float(input("Enter the third angle of the triangle: "))
     
-    hours = float(input("Enter the number of parking hours: "))
+    result = classify_triangle(angle1, angle2, angle3)
     
-    cost = calculate_parking_cost(hours)
-    
-    print(f"The total parking cost is: ${cost:.2f}")
+    print(f"The triangle is: {result}")
 
 main()
