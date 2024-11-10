@@ -1,32 +1,26 @@
-#Ejercicio 15
+#Ejercicio 16
 
-#Escribe un programa que calcule el salario neto de un empleado después de aplicar impuestos.
+#Escribe un programa que calcule el tiempo que tarda en llegar un automóvil a su destino.
 
-def calculate_net_salary(gross_salary, country):
+def calculate_travel_time(distance, speed):
     
-    match country:
-        case "Country A":
-            tax_rate = 0.20  
-        case "Country B":
-            tax_rate = 0.15  
-        case "Country C":
-            tax_rate = 0.10  
-        case _:
-            tax_rate = 0.18  
+    time_hours = distance / speed
     
+    hours = int(time_hours)  
+    minutes = round((time_hours - hours) * 60)  
     
-    net_salary = gross_salary * (1 - tax_rate)
-    return net_salary
+    return hours, minutes
 
 def main():
-    
-    gross_salary = float(input("Enter your gross salary: "))
-    country = input("Enter your country of residence (Country A, Country B, Country C, other): ").strip()
-    
    
-    net_salary = calculate_net_salary(gross_salary, country)
+    distance = float(input("Enter the distance to travel (in km): "))
+    speed = float(input("Enter the car's average speed (in km/h): "))
     
+    if speed > 120:
+        print("Warning! The speed is greater than 120 km/h, which is dangerous.")
     
-    print(f"Your net salary after taxes is: {net_salary:.2f}")
+    hours, minutes = calculate_travel_time(distance, speed)
+    
+    print(f"The travel time is: {hours} hours and {minutes} minutes.")
 
 main()
