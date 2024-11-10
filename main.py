@@ -1,27 +1,26 @@
-#Ejercicio 17
+#Ejercicio 18
 
-#Escribe un programa que calcule la calificación final de un estudiante basándose en su calificación
-#y si ha hecho tareas adicionales. Las tareas adicionales pueden darle un extra de puntos, pero el
-#máximo de puntos no puede exceder 100.
+#Escribe un programa que calcule el número de créditos totales de un estudiante en base a las
+#materias cursadas y el puntaje obtenido en cada una. El puntaje debe ser evaluado como
+#aprobado o no aprobado.
 
-def calculate_final_grade(grade, did_extra_assignments):
-
-    if did_extra_assignments.lower() == "yes":
-        grade += grade * 0.05  
-        
-    if grade > 100:
-        grade = 100
+def calculate_total_credits(number_of_courses):
+    total_credits = 0
     
-    return grade
+    for i in range(1, number_of_courses + 1):
+        score = float(input(f"Enter the score obtained in course {i}: "))
+        
+        if score >= 60:
+            total_credits += 3 
+    
+    return total_credits
 
 def main():
+
+    number_of_courses = int(input("Enter the number of courses you have taken: "))
     
-    grade = float(input("Enter the student's grade (0-100): "))
+    total_credits = calculate_total_credits(number_of_courses)
     
-    did_extra_assignments = input("Did the student do extra assignments? (yes/no): ").strip()
-    
-    final_grade = calculate_final_grade(grade, did_extra_assignments)
-    
-    print(f"The student's final grade is: {final_grade:.2f}")
+    print(f"The total number of credits earned is: {total_credits}")
 
 main()
